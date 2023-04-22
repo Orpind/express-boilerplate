@@ -9,12 +9,18 @@
     "build": "tsc --build tsconfig.build.json",
     "lint": "eslint \"./src/**/*.ts\"",
     "prettier:check": "prettier --config .prettierrc \"./src/**/*.+(js|json|ts)\" --check --ignore-unknown",
-    "prettier:write": "prettier --config .prettierrc \"./src/**/*.+(js|json|ts)\" --write --ignore-unknown"
+    "prettier:write": "prettier --config .prettierrc \"./src/**/*.+(js|json|ts)\" --write --ignore-unknown",
+    "test": "jest --coverage"
   },
   "lint-staged": {
     "./src/**/*.+(ts|js)": [
       "npm run lint",
       "npm run prettier:check"
+    ]
+  },
+  "test-staged": {
+    "./src/**/*.+(ts|js)": [
+      "npm run test"
     ]
   },
   "keywords": [],
@@ -43,6 +49,7 @@
     "nodemon": "^2.0.22",
     "prettier": "^2.8.7",
     "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4"

@@ -22,7 +22,7 @@
     }
   },
   "rules": {
-    "@typescript-elsint/explicit-module-boundary-types": ["errors"],
+    "@typescript-elsint/explicit-module-boundary-types": "off",
     "semi": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
     "no-trailing-spaces": ["error"],
@@ -32,8 +32,8 @@
       {
         "code": 120,
         "tabWidth": 2,
-        "ignoreComments": "true",
-        "ignoreStrings": "true"
+        "ignoreComments": true,
+        "ignoreStrings": true
       }
     ],
     "import/no-extraneous-dependencies": [

@@ -1,11 +1,16 @@
-import express from "express";
+import express, { Application, Request, Response } from 'express'
 
-const app = express();
+import userRouter from './routes/user.routes'
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const app: Application = express()
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
-});
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+app.use('/users', userRouter)
+
+app.use('/', (req: Request, res: Response): void => {
+  res.json({ message: 'Hello! Catch-all route.' })
+})
+
+export default app
