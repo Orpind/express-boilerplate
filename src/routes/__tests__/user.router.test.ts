@@ -1,5 +1,10 @@
-describe('User.router.ts tests', () => {
-  test('Math test', () => {
-    expect(2 + 2).toBe(4)
+import request from 'supertest'
+
+import app from '../../app'
+
+describe('User routes', () => {
+  test('Get all users', async () => {
+    const res = await request(app).get('/users')
+    expect(res.body).toEqual(['John Doe', 'Jane Doe', 'John Smith'])
   })
 })

@@ -1,5 +1,10 @@
-describe('App.ts tests', () => {
-  test('Math test', () => {
-    expect(2 + 2).toBe(4)
+import request from 'supertest'
+
+import app from '../app'
+
+describe('Test app.ts', () => {
+  test('Catch-all route', async () => {
+    const res = await request(app).get('/')
+    expect(res.body).toEqual({ message: 'Hello! Catch-all route.' })
   })
 })
